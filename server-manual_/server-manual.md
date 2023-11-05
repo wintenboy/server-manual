@@ -98,10 +98,13 @@ VSCode 설치는 아래의 링크에서 가능합니다.
 ![docker1](imgs/docker1.png)
 
 ```bash
-docker container run -it --gpus '"device={device number}"'
-										--ipc=host --name [본인이름_컨테이너이름]
-										--hostname [본인이름_컨테이너이름] -v ~/[본인이름]:/[원하는 디렉토리 이름]
-										-p 포트번호:포트번호 pytorch/pytorch:latest /bin/bash
+docker container run -it --gpus '"device={device number}"' 
+  --ipc=host \
+  --name [본인이름_컨테이너이름] \
+  --hostname [본인이름_컨테이너이름] \
+  -v ~/[본인이름]:/[원하는 디렉토리 이름] \
+	-p 포트번호:포트번호 
+  pytorch/pytorch:latest /bin/bash
 ```
 
 + 위와 같은 명령어를 터미널에 입력하여 컨테이너를 생성할 수 있습니다. 
@@ -112,9 +115,9 @@ docker container run -it --gpus '"device={device number}"'
 
 ```bash
 docker container run -it --gpus '"device=0"'
-										--ipc=host --name seungyeol_torch
-										--hostname seungyeol_torch -v ~/seungyeol:/workspace
-										-p 포트번호:포트번호 tensorflow/tensorflow:latest /bin/bash
+	--ipc=host --name seungyeol_torch
+	--hostname seungyeol_torch -v ~/seungyeol:/workspace
+	-p 8888:포트번호 tensorflow/tensorflow:latest /bin/bash
 ```
 
 ### 컨테이너 연결
