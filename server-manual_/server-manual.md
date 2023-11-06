@@ -103,7 +103,7 @@ docker container run -it --gpus '"device={device number}"'
   --name [본인이름_컨테이너이름] \
   --hostname [본인이름_컨테이너이름] \
   -v ~/[본인이름]:/[원하는 디렉토리 이름] \
-	-p 포트번호:포트번호 
+  -p 포트번호:포트번호 \
   pytorch/pytorch:latest /bin/bash
 ```
 
