@@ -470,15 +470,16 @@ document.write(`
 <ul>
 <li><p>파일을 클릭하면 config 창이 열리는데</p>
 <ul>
-<li><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span>Host [본인 이름]
-	Hostname 192.168.0.35
-	User [본인 이름]
-	Port 92
+<li><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span>Host 본인 이름
+	Hostname 10.1.16.162
+	User 본인 이름
+	Port 1234
 </pre></div>
 </div>
 </li>
-<li><p>[본인 이름] 자리에는 본인의 User ID를 쓰는 것을 것을 권장하며 다른 부분은 건들지 말 것 !</p></li>
-<li><p>CTRL + S 를 눌러 저장하고 닫기</p></li>
+<li><p>‘Host’의 본인 이름 자리에는 본인의 User ID를 쓰는 것을 것을 권장하며 다른 부분은 건들지 말 것 !</p></li>
+<li><p>유의 사항: ‘User’ 자리에는 본인이 만든 서버 User ID를 입력해야 합니다.</p></li>
+<li><p>CTRL + S 를 눌러서 config 창 저장하고 닫기.</p></li>
 </ul>
 </li>
 </ul>
@@ -511,10 +512,8 @@ document.write(`
 <li><p>터미널을 열어줍니다. 터미널을 열면 <strong>[본인 이름]&#64;~</strong> 가 뜨면서 원격 접속이 잘 된 것을 확인할 수 있습니다.</p></li>
 </ul>
 <p><img alt="docker1" src="_images/docker1.png" /></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>container<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--gpus<span class="w"> </span><span class="s1">&#39;&quot;device={device number}&quot;&#39;</span>
-<span class="w">										</span>--ipc<span class="o">=</span>host<span class="w"> </span>--name<span class="w"> </span><span class="o">[</span>본인이름_컨테이너이름<span class="o">]</span>
-<span class="w">										</span>--hostname<span class="w"> </span><span class="o">[</span>본인이름_컨테이너이름<span class="o">]</span><span class="w"> </span>-v<span class="w"> </span>~/<span class="o">[</span>본인이름<span class="o">]</span>:/<span class="o">[</span>원하는<span class="w"> </span>디렉토리<span class="w"> </span>이름<span class="o">]</span>
-<span class="w">										</span>-p<span class="w"> </span>포트번호:포트번호<span class="w"> </span>pytorch/pytorch:latest<span class="w"> </span>/bin/bash
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>container<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--gpus<span class="w"> </span><span class="s1">&#39;&quot;device={device number}&quot;&#39;</span><span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--name<span class="w"> </span>본인이름_컨테이너이름<span class="w"> </span>
+--hostname<span class="w"> </span>본인이름_컨테이너이름<span class="w"> </span>-v<span class="w"> </span>~/본인이름:/원하는<span class="w"> </span>디렉토리<span class="w"> </span>이름-p<span class="w"> </span>포트번호:포트번호<span class="w"> </span>pytorch/pytorch:latest<span class="w"> </span>/bin/bash
 </pre></div>
 </div>
 <ul class="simple">
@@ -527,10 +526,7 @@ document.write(`
 </li>
 <li><p>아래는 docker container 생성에 관련한 예시 명령어 입니다.</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>container<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--gpus<span class="w"> </span><span class="s1">&#39;&quot;device=0&quot;&#39;</span>
-<span class="w">										</span>--ipc<span class="o">=</span>host<span class="w"> </span>--name<span class="w"> </span>seungyeol_torch
-<span class="w">										</span>--hostname<span class="w"> </span>seungyeol_torch<span class="w"> </span>-v<span class="w"> </span>~/seungyeol:/workspace
-<span class="w">										</span>-p<span class="w"> </span>포트번호:포트번호<span class="w"> </span>tensorflow/tensorflow:latest<span class="w"> </span>/bin/bash
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>container<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--gpus<span class="w"> </span><span class="s1">&#39;&quot;device=0&quot;&#39;</span><span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--name<span class="w"> </span>seungyeol_torch<span class="w"> </span>--hostname<span class="w"> </span>seungyeol_torch<span class="w"> </span>-v<span class="w"> </span>~/seungyeol:/workspace<span class="w"> </span>-p<span class="w"> </span><span class="m">8888</span>:포트번호<span class="w"> </span>tensorflow/tensorflow:latest<span class="w"> </span>/bin/bash
 </pre></div>
 </div>
 </section>
