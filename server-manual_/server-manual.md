@@ -57,10 +57,10 @@ VSCode 설치는 아래의 링크에서 가능합니다.
 + 파일을 클릭하면 config 창이 열리는데
 
   + ```yaml
-    Host [본인 이름]
-    	Hostname 192.168.0.14
-    	User [본인 이름]
-    	Port 92
+    Host 본인 이름
+    	Hostname 10.1.16.162
+    	User 본인 이름
+    	Port 1234
     ```
 
   + [본인 이름] 자리에는 본인의 User ID를 쓰는 것을 것을 권장하며 다른 부분은 건들지 말 것 !
@@ -98,13 +98,8 @@ VSCode 설치는 아래의 링크에서 가능합니다.
 ![docker1](imgs/docker1.png)
 
 ```bash
-docker container run -it --gpus '"device={device number}"' 
-  --ipc=host \
-  --name [본인이름_컨테이너이름] \
-  --hostname [본인이름_컨테이너이름] \
-  -v ~/[본인이름]:/[원하는 디렉토리 이름] \
-  -p 포트번호:포트번호 \
-  pytorch/pytorch:latest /bin/bash
+docker container run -it --gpus '"device={device number}"' --ipc=host --name 본인이름_컨테이너이름 
+--hostname 본인이름_컨테이너이름 -v ~/본인이름:/원하는 디렉토리 이름-p 포트번호:포트번호 pytorch/pytorch:latest /bin/bash
 ```
 
 + 위와 같은 명령어를 터미널에 입력하여 컨테이너를 생성할 수 있습니다. 
@@ -114,10 +109,7 @@ docker container run -it --gpus '"device={device number}"'
 + 아래는 docker container 생성에 관련한 예시 명령어 입니다.
 
 ```bash
-docker container run -it --gpus '"device=0"'
-	--ipc=host --name seungyeol_torch
-	--hostname seungyeol_torch -v ~/seungyeol:/workspace
-	-p 8888:포트번호 tensorflow/tensorflow:latest /bin/bash
+docker container run -it --gpus '"device=0"' --ipc=host --name seungyeol_torch --hostname seungyeol_torch -v ~/seungyeol:/workspace -p 8888:포트번호 tensorflow/tensorflow:latest /bin/bash
 ```
 
 ### 컨테이너 연결
