@@ -58,7 +58,7 @@ VSCode 설치는 아래의 링크에서 가능합니다.
 
   + ```yaml
     Host [본인 이름]
-    	Hostname 192.168.0.35
+    	Hostname 192.168.0.14
     	User [본인 이름]
     	Port 92
     ```
